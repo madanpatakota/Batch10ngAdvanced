@@ -1,0 +1,58 @@
+
+
+Title :
+1. We know that we are passing the data from parent to the child.
+
+
+Steps :
+
+--Child component  has to prepare the referecne to catch the data(its we are getting from the parent.)
+Here CustomerInfo
+
+
+
+
+Title :
+1. We know that we are passing the data from Child to the Parent.
+
+
+Steps :
+
+1. When you want to pass the data..     (button click of the customer registraion page)
+2. Who will be take care for prepare the data.. ( event emitter)
+
+@Output('___________')  customeremitter = new EventEmitter();
+// Now we can pass the data
+this.customeremitter.emit(________________________);
+
+
+
+app.component 
+
+
+
+
+
+
+
+
+
+
+services...
+  eventemitter 
+
+
+
+
+
+
+@Output() <--- preparation data..
+
+
+
+
+
+
+
+
+
