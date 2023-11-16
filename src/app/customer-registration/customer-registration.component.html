@@ -7,25 +7,41 @@
       <div class="mb-3 row">
         <label for="name" class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="name" placeholder="Enter your name" [value]="CustomerInfo.Name">
+          <input type="text" 
+           class="form-control"
+           id="name"
+           placeholder="Enter your name" 
+           [value]="CustomerInfo.Name"
+           #CustomerName>
         </div>
       </div>
       <div class="mb-3 row">
         <label for="email" class="col-sm-3 col-form-label">Email</label>
         <div class="col-sm-9">
-          <input type="email" class="form-control" id="email" placeholder="Enter your email" [value]="CustomerInfo.Email">
+          <input type="email" 
+          class="form-control" 
+          id="email"
+           placeholder="Enter your email" 
+           [value]="CustomerInfo.Email"
+           #CustomerEmail>
         </div>
       </div>
       <div class="mb-3 row">
         <label for="password" class="col-sm-3 col-form-label">Password</label>
         <div class="col-sm-9">
-          <input type="password" class="form-control" id="email" placeholder="Enter your Password" [value]="CustomerInfo.Password">
+          <input type="text" 
+          class="form-control"
+           id="password" 
+           placeholder="Enter your Password" 
+           [value]="CustomerInfo.Password"
+           #CustomerPassword>
         </div>
       </div>
      
       <div class="row">
         <div class="col-sm-9 offset-sm-3">
-          <button type="button" class="btn btn-primary btn-block" (click)="evtPostData()" >Submit</button>
+          <button type="button" class="btn btn-primary btn-block" (click)="evtPostData()" >Submit</button> |
+          <button type="button" class="btn btn-danger btn-block" (click)="evtClearData()" >Clear</button>
         </div>
       </div>
     </form>

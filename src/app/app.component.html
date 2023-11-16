@@ -2,27 +2,30 @@
   <div class="row mt-4">
     <h6 class="display-6">Customer Page</h6>
     <div class="row mt-4 p-3 bg-dark text-light">
+
       <span class="col-3">
-        Customer Name :
+        Customer Name :  <span class="text-monospace fs-5"> {{CustomerLatestRecord.Name}} </span>
       </span>
-      <span class="text-monospace fs-5"> John </span>
-    </div>
-    <div class="row mt-4 p-3 bg-dark text-light">
+
+
+
+    <span class="col-3">
+        Customer Password : <span class="text-monospace fs-5"> {{CustomerLatestRecord.Password}} </span>
+    </span>
+
+
       <span class="col-3">
-        Customer Password :
-      </span>
-      <span class="text-monospace fs-5"> @#!$%^^ </span>
-    </div>
-    <div class="row mt-4 p-3 bg-dark text-light">
-      <span class="col-3">
-        Customer Email :
-      </span>
-      <span class="text-monospace fs-5"> John@gmail.com </span>
+        Customer Email : <span class="text-monospace fs-5"> {{CustomerLatestRecord.Email}} </span>
+    </span>
+
+
     </div>
   </div>
 
   <!-- <input type="text" name="student" (keypress)="keypressfunction($event)" /> -->
       <!-- @ouputpur -->
+
+
   <div class="row mt-4">
     <div class="col-md-5">
       <app-customer-registration 
@@ -31,7 +34,20 @@
         <!-- <input type="text" />   -->
       </app-customer-registration>
     </div>
+
+    <div class="col-md-5">
+      <app-customer-details [CustomerRecord] = "CustomerLatestRecord">
+      </app-customer-details>
+    </div>
+
   </div>
+
+  <div class="row justify-content-center mt-5">
+    <div>
+        <app-customer-registration-history [CustomerRecord] = "CustomerLatestRecord"></app-customer-registration-history>
+    </div>
+</div>
+  
 
 
 

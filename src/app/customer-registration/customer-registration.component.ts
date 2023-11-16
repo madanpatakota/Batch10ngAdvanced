@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output , ViewChild , ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-customer-registration',
@@ -23,14 +23,34 @@ export class CustomerRegistrationComponent {
   @Output('CustomerEventEmitter') customerEmitter = new EventEmitter<any>();
    //    var                         abc
 
+
+   /* Here i am taking the reference of the 3 elements . for that i am using @viewchild */
+   @ViewChild("CustomerName") _vCustomerName : ElementRef<any>;
+   @ViewChild("CustomerEmail") _vCustomerEmail : ElementRef<any>;
+   @ViewChild("CustomerPassword") _vCustomerPassword : ElementRef<any>;
+
    evtPostData(){
     /* In event emitter i have taken any type so that i can pass any value like number , boolean , object , array 
        As of now i am taking the object */
        //this.customerEmitter.emit("Test");
 
        console.log("Click the submit button - child");
-       this.customerEmitter.emit("Test");
 
+       //var obj = { Name : "jobn"};
+
+       var CustomerObj = {
+         Name : this._vCustomerName.nativeElement.value ,
+         Email : this._vCustomerEmail.nativeElement.value ,
+         Password : this._vCustomerPassword.nativeElement.value
+       }
+
+       //this.customerEmitter.emit( "Test" );
+       this.customerEmitter.emit( CustomerObj );
+
+   }
+
+   evtClearData(){
+      this.CustomerInfo = { Name : "" , Email : "" , Password : ""  };
    }
 
 

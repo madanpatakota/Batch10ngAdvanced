@@ -27,7 +27,7 @@ this.customeremitter.emit(________________________);
 
 
 
-app.component 
+app.component ust
 
 
 
