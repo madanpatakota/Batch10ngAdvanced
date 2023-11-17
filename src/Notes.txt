@@ -53,6 +53,40 @@ services...
 
 
 
+/* component is having the life cycle hooks like human being */
+
+
+stages  born
+
+stage  kid
+
+stage teenage  -- get the college
+
+stage 25 --- get the job
+------
+stage 30 -- get the marraige
+
+-----
+
+
+stage   die
+
+
+
+interface Iemployee{
+  
+   getEmployees()
+
+}
+
+
+class class1 implements Iemployee{
+  
+getEmployees(){
+
+}
+
+}
 
 
 

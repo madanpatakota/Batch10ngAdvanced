@@ -1,15 +1,68 @@
-import { Component, EventEmitter, Input, Output , ViewChild , ElementRef } from '@angular/core';
+import { Component,
+EventEmitter,
+Input, 
+Output ,
+ViewChild ,
+ElementRef ,
+OnChanges, 
+OnInit,
+AfterViewInit,
+AfterContentInit,
+ContentChild,
+AfterContentChecked,
+AfterViewChecked,
+OnDestroy
+} from '@angular/core';
 
 @Component({
   selector: 'app-customer-registration',
   templateUrl: './customer-registration.component.html',
   styleUrls: ['./customer-registration.component.css']
 })
-export class CustomerRegistrationComponent {
+export class CustomerRegistrationComponent 
+implements
+ OnChanges,
+ OnInit,
+ AfterViewInit,
+ AfterContentInit ,
+ AfterContentChecked,
+ AfterViewChecked,
+ OnDestroy {
+
+  /*Life cycle hooks*/
+
 
 
   /*We are taking the data.*/
    @Input('CustomerInfo') CustomerInfo : any;
+
+   
+   /* 1 .Here i am getting the data from parent
+      2. CustomerInfo value is :  { Name: 'Robert', Email: 'Robert@gmail.com', Password: '!@&&*9*' };
+      3. Parent is giving Robert. but i want to change the value of Name - Peter
+
+
+
+      // I have created the situation.
+      I want the control of CustomerInfo because i want to update the Name(Peter).
+
+   */
+
+    ngOnChanges(): void {
+       console.log("input changes are" , this.CustomerInfo);
+      // { Name :  "Robert" , Password : "!@&&*9*" , Email : "Robert@gmail.com" } 
+        this.CustomerInfo.Name = "Peter";
+        console.log('ngOnchanges changes are loaded');
+    }
+
+    ngOnInit(): void {
+        //subcriptions activites we do here .... API , Routers , Servies related subscrptions we have to do here .....
+        console.log('Page Component has loaded');
+    }
+
+   
+
+
 
 
    
@@ -28,6 +81,36 @@ export class CustomerRegistrationComponent {
    @ViewChild("CustomerName") _vCustomerName : ElementRef<any>;
    @ViewChild("CustomerEmail") _vCustomerEmail : ElementRef<any>;
    @ViewChild("CustomerPassword") _vCustomerPassword : ElementRef<any>;
+
+   /*I want to add the default data to the viewchild */
+  //  email : 'peter@gmail.com'
+  //  password : '!@#$%^'
+  ngAfterViewInit(): void {
+      this._vCustomerEmail.nativeElement.value = 'Peter@gmail.com';
+      this._vCustomerPassword.nativeElement.value = '!@#$%^';
+      console.log("Page view childs are loaded");
+  }
+
+
+  /*We can take the control of contentchild values.*/
+  @ContentChild("CustomerMessage")  cCustomerMessage: ElementRef;
+  ngAfterContentInit(): void {
+     this.cCustomerMessage.nativeElement.value = "Peter is a SalesRep having 2 kids";
+     console.log("Page content childs are loaded");
+  }
+
+  ngAfterViewChecked(): void {
+     console.log("View has changes");
+  }
+
+  ngAfterContentChecked(): void {
+     console.log("Content changes");
+  }
+
+  
+  
+
+
 
    evtPostData(){
     /* In event emitter i have taken any type so that i can pass any value like number , boolean , object , array 
@@ -55,6 +138,13 @@ export class CustomerRegistrationComponent {
 
 
 
+
+   ngOnDestroy(): void {
+     //  //unsubcriptions activites we do here .... API , Routers , Servies related subscrptions we have to do here .....
+     //   _________________.unsusbcire() 
+     // if you are jumping from one page to another page . that means previous page you are destroying and entering the new page.
+      console.log("Page is destroying");
+   }
 
 
 
