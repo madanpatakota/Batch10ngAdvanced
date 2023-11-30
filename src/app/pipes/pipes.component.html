@@ -1,0 +1,112 @@
+<div class="container m-4 p-4">
+  <div class="row">
+    <strong>{{ courseName | uppercase }}</strong>
+  </div>
+  <hr>
+  <div class="row">
+    <strong>{{ courseName | lowercase }}</strong>
+  </div>
+<hr>
+  <div class="row">
+    
+    <strong class="mt-2">{{ todayDate }}</strong>
+    <strong class="mt-2">{{ todayDate | date }}</strong>
+    <strong class="mt-2">{{ todayDate | date : 'short' }}</strong>
+    <strong class="mt-2">{{ todayDate | date : 'medium' }}</strong>
+    <strong class="mt-2">{{ todayDate | date : 'shortDate' }}</strong>
+
+  </div>
+
+  <hr>
+  <div class="row">
+    
+   
+    <strong class="text-success mt-2">
+      {{ todayDate | date | uppercase }}
+    </strong>
+
+    <strong class="text-success mt-2">
+      {{ todayDate | date : 'medium' | lowercase }}</strong>
+    
+
+  </div>
+
+  <hr>
+  <div class="row">
+    
+    <div>
+      <h4> Custom Pipe - Part 1 </h4>
+    </div>
+   
+    <strong class="text-bg-primary mt-2">
+        {{bigSentence}}
+    </strong>
+
+    <strong class="text-bg-info mt-2">
+      {{bigSentence | short }}
+     </strong>
+
+     <strong class="text-bg-info mt-2">
+      {{anotherBigSentece | short }}
+     </strong>
+    
+
+  </div>
+
+
+
+  <div class="row mt-5 mb-5">
+    
+    <div>
+      <h4> Custom Pipe - Part 2</h4>
+    </div>
+   
+    <!-- <strong class="mt-2">{{ todayDate | date : 'short' }}</strong> -->
+
+    <strong class="text-bg-info mt-2">
+      {{bigSentence | uppercase | short : 20 }}     --  i need the 20 charcters..
+     </strong>
+
+     <strong class="text-bg-info mt-2">
+      {{anotherBigSentece| lowercase  | short : 15 }}  -- i need the 15 charcters.
+     </strong>
+    
+
+  </div>
+
+
+
+
+</div>
+
+
+
+<hr>
+
+<div class="container m-4 p4">
+
+  <div class="row">
+     <div class="col-6">
+     <input type="text" class="form-control"
+       placeholder="Please enter any information"
+       [(ngModel)] ="anyInformation" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mt-5">
+      <ul class="list-group">
+        <li class="list-group-item" 
+        *ngFor = "let item of employees | filter: anyInformation : 'Test' ">
+          <p>{{item.name}}</p>
+          <p>{{item.skill}}</p>
+          <p>{{item.started}}</p>
+          <p>{{item.information}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+

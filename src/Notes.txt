@@ -90,3 +90,23 @@ getEmployees(){
 
 
 
+FourthBranch :
+
+
+ Pipe :
+
+ Useful for todo the data transformation in the template.
+
+ to transofrom the data into the template.
+
+
+ How many types of pipes in the angular ?
+ Uppercase
+ Lowercase
+ DatePipe
+ 
+
+
+
+
+
