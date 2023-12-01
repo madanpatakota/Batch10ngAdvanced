@@ -110,3 +110,40 @@ FourthBranch :
 
 
 
+
+
+
+
+
+Directive : its give some set of instructions to the element
+
+Attribute       ngstyle ngclass
+
+structurral     ngif ngfor
+
+              
+
+
+Custom directive( Attribute , structual)
+
+                    ngBasicColor Directive
+
+Custom Directive :
+-------------------
+
+
+ngBasicColor   ---> background is green color yellow fontsize  20px
+
+
+
+
+
+
+
+
+
+
+
+
+
+

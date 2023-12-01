@@ -10,6 +10,8 @@ import { MainComponent } from './main/main.component';
 import { ShortPipe } from './short.pipe';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
+import { NgbasiccolorDirective } from './ngbasiccolor.directive';
+import { NgadvancedcolorDirective } from './ngadvancedcolor.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FilterPipe } from './filter.pipe';
     PipesComponent,
     MainComponent,
     ShortPipe,
-    FilterPipe
+    FilterPipe,
+    NgbasiccolorDirective,
+    NgadvancedcolorDirective
   ],
   imports: [
     BrowserModule,
